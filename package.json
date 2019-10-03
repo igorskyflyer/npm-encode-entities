@@ -4,7 +4,8 @@
 	"description": "Zero-dependency HTML entities encoder.",
 	"main": "index.js",
 	"scripts": {
-		"test": "mocha --slow 0"
+		"test": "mocha --slow 0",
+		"benchmark": "node ./benchmark/index.js"
 	},
 	"keywords": [
 		"entity",
