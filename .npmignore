@@ -6,6 +6,8 @@
 /benchmark/
 # Tests directory
 /test/
+# GitHub directory
+/.github/
 
 # Files
 
