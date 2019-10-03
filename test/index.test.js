@@ -34,7 +34,7 @@ describe('Encoding', () => {
 		})
 
 		it('add new rule', () => {
-			encoder.addRule('→', '&#8594;')
+			encoder.rule('→', '&#8594;')
 			const result = encoder.encode('<a href="#">→</a>')
 			assert.equal(result, '&#60;a href&#61;&#34;&#35;&#34;&#62;&#8594;&#60;&#47;a&#62;')
 		})
