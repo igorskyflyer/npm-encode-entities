@@ -4,6 +4,12 @@ const fs = require('fs')
 
 const suite = new Benchmark.Suite()
 
+suite.add('encode a single character', function () {
+	Encoder.encode('<')
+}, {
+	'minSamples': 100
+})
+
 suite.add('encode a single tag', function () {
 	Encoder.encode('<strong></strong>')
 }, {
