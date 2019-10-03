@@ -1,6 +1,7 @@
-const expressionWhitespace = /(\t|\n|\r)+/gm
-
-let map = {
+const map = {
+	'<': '&#60;',
+	'=': '&#61;',
+	'>': '&#62;',
 	'&': '&#38;',
 	'!': '&#33;',
 	'"': '&#34;',
@@ -12,31 +13,17 @@ let map = {
 	')': '&#41;',
 	'*': '&#42;',
 	'+': '&#43;',
-	',': '&#44;',
-	'-': '&#45;',
-	'.': '&#46;',
 	'/': '&#47;',
 	':': '&#58;',
 	';': '&#59;',
-	'<': '&#60;',
-	'=': '&#61;',
-	'>': '&#62;',
-	'?': '&#63;',
-	'@': '&#64;',
 	'[': '&#91;',
 	'\\': '&#92;',
 	']': '&#93;',
 	'^': '&#94;',
-	'_': '&#95;',
-	'`': '&#96;',
 	'{': '&#123;',
 	'|': '&#124;',
 	'}': '&#125;',
 	'~': '&#126;'
-}
-
-function replaceAll(char) {
-	return '&#' + char.charCodeAt(0) + ';'
 }
 
 function replaceMapped(char) {
@@ -64,30 +51,65 @@ function rule(from, to) {
  * @returns {String}
  */
 function encode(input, options = {}) {
+	let result = ''
+
 	if (typeof input === 'string') {
+		const count = input.length
+
+		if (count === 0) {
+			return ''
+		}
+
 		options = {
 			encodeAll: options.encodeAll || false,
 			stripWhitespace: options.stripWhitespace || false,
 		}
 
-		const expression = /./g
+		if (count <= 300) {
+			let cursor = 0
+			let char = ''
 
-		if (options.encodeAll) {
-			input = input.replace(expression, replaceAll)
+			if (options.encodeAll) {
+				while (cursor < count) {
+					char = input[cursor]
+
+					if (options.stripWhitespace && (char === '\t' || char === '\r' || char === '\n')) {
+						cursor++
+						continue
+					}
+
+					result += '&#' + char.charCodeAt(0) + ';'
+					cursor++
+				}
+			}
+			else {
+				while (cursor < count) {
+					char = input[cursor]
+
+					if (options.stripWhitespace && (char === '\t' || char === '\r' || char === '\n')) {
+						cursor++
+						continue
+					}
+
+					result += map[char] || char
+					cursor++
+				}
+			}
 		}
 		else {
-			input = input.replace(expression, replaceMapped)
-		}
+			const expression = /./g
 
-		if (options.stripWhitespace) {
-			input = input.replace(expressionWhitespace, '')
-		}
+			result = input.replace(expression, replaceMapped)
 
-		return input
+			if (options.stripWhitespace) {
+				const expressionWhitespace = /[\t\n\r]+/gm
+
+				result = result.replace(expressionWhitespace, '')
+			}
+		}
 	}
-	else {
-		return ''
-	}
+
+	return result
 }
 
 module.exports = {
