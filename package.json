@@ -1,6 +1,6 @@
 {
 	"name": "encode-entities",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Zero-dependency HTML entities encoder.",
 	"main": "index.js",
 	"scripts": {

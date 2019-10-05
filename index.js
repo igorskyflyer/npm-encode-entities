@@ -1,34 +1,17 @@
-const map = {
+const map={
 	'<': '&#60;',
 	'=': '&#61;',
 	'>': '&#62;',
 	'&': '&#38;',
-	'!': '&#33;',
 	'"': '&#34;',
 	'#': '&#35;',
 	'$': '&#36;',
-	'%': '&#37;',
 	'\'': '&#39;',
 	'(': '&#40;',
-	')': '&#41;',
-	'*': '&#42;',
-	'+': '&#43;',
-	'/': '&#47;',
-	':': '&#58;',
-	';': '&#59;',
-	'[': '&#91;',
-	'\\': '&#92;',
-	']': '&#93;',
-	'^': '&#94;',
-	'{': '&#123;',
-	'|': '&#124;',
-	'}': '&#125;',
-	'~': '&#126;'
+	')': '&#41;'
 }
 
-function replaceMapped(char) {
-	return map[char] || char
-}
+let expression=new RegExp('[<=>&\"#\\$\'\\(\\)]', 'g')
 
 /**
  * Adds a new rule or updates the existing rule for entities encoding.
@@ -37,81 +20,42 @@ function replaceMapped(char) {
  * @return {void}
  */
 function rule(from, to) {
-	if (typeof from !== 'string' || typeof to !== 'string') {
+	if (typeof from!=='string'||typeof to!=='string') {
 		return
 	}
 
-	map[from] = to
+	map[from]=to
+	expression=new RegExp(`[${Object.keys(map).join((''))}]`, 'g')
 }
 
 /**
  * Encodes special characters in the given string to HTML entities.
  * @param {String} input
- * @param {Object} options
  * @returns {String}
  */
-function encode(input, options = {}) {
-	let result = ''
+function encode(input) {
+	if (typeof input!=='string') {
+		return ''
+	}
 
-	if (typeof input === 'string') {
-		const count = input.length
+	let match=null
+	let result=''
+	let startIndex=0
+	let lastIndex=0
 
-		if (count === 0) {
-			return ''
-		}
+	while (match=expression.exec(input)) {
+		lastIndex=match.index
+		result+=input.substring(startIndex, lastIndex)+map[input[lastIndex]]
+		startIndex=lastIndex+1
+	}
 
-		options = {
-			encodeAll: options.encodeAll || false,
-			stripWhitespace: options.stripWhitespace || false,
-		}
-
-		if (count <= 300) {
-			let cursor = 0
-			let char = ''
-
-			if (options.encodeAll) {
-				while (cursor < count) {
-					char = input[cursor]
-
-					if (options.stripWhitespace && (char === '\t' || char === '\r' || char === '\n')) {
-						cursor++
-						continue
-					}
-
-					result += '&#' + char.charCodeAt(0) + ';'
-					cursor++
-				}
-			}
-			else {
-				while (cursor < count) {
-					char = input[cursor]
-
-					if (options.stripWhitespace && (char === '\t' || char === '\r' || char === '\n')) {
-						cursor++
-						continue
-					}
-
-					result += map[char] || char
-					cursor++
-				}
-			}
-		}
-		else {
-			const expression = /./g
-
-			result = input.replace(expression, replaceMapped)
-
-			if (options.stripWhitespace) {
-				const expressionWhitespace = /[\t\n\r]+/gm
-
-				result = result.replace(expressionWhitespace, '')
-			}
-		}
+	if (input.length>startIndex) {
+		result+=input.substring(startIndex)
 	}
 
 	return result
 }
 
-module.exports = {
+module.exports={
 	rule, encode
 }

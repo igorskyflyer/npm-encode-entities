@@ -1,9 +1,9 @@
-const Benchmark = require('benchmark')
-const Beautifier = require('beautify-benchmark')
-const Encoder = require('../index')
-const fs = require('fs')
+const Benchmark=require('benchmark')
+const Beautifier=require('beautify-benchmark')
+const Encoder=require('../index')
+const fs=require('fs')
 
-const suite = new Benchmark.Suite()
+const suite=new Benchmark.Suite()
 
 suite.add('empty string', function () {
 	Encoder.encode('')
@@ -35,7 +35,7 @@ suite.add('encode a single tag', function () {
 	'minSamples': 100
 })
 
-const smallDocument = fs.readFileSync(__dirname + '/assets/small.html').toString()
+const smallDocument=fs.readFileSync(__dirname+'/assets/small.html').toString()
 
 suite.add('encode small document', function () {
 	Encoder.encode(smallDocument)
@@ -43,7 +43,7 @@ suite.add('encode small document', function () {
 	'minSamples': 100
 })
 
-const largeDocument = fs.readFileSync(__dirname + '/assets/large.html').toString()
+const largeDocument=fs.readFileSync(__dirname+'/assets/large.html').toString()
 
 suite.add('encode large document', function () {
 	Encoder.encode(largeDocument)

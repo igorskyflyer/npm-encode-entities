@@ -9,9 +9,6 @@
   * [Methods](#methods)
     * [rule&#40;&#41;](#rule)
     * [encode&#40;&#41;](#encode)
-  * [Config](#config)
-    * [encodeAll](#encodeall)
-    * [stripWhitespace](#stripwhitespace)
   * [Install](#install)
   * [Test](#test)
   * [Benchmark](#benchmark)
@@ -43,36 +40,9 @@ function rule(from, to)
 ```javascript
 /**
  * @param {String} input
- * @param {Object} options
  * @returns {String}
  */
-function encode(input, options = {})
-```
-
-<br>
-
-## Config
-
-### encodeAll
-
-*Encodes all characters to their ASCII counterparts.*
-
-```javascript
-encode(input, options = {
-	encodeAll: true
-})
-```
-
-<br>
-
-### stripWhitespace
-
-*Removes all tabs, new lines and/or carriage returns.*
-
-```javascript
-encode(input, options = {
-	stripWhitespace: true
-})
+function encode(input)
 ```
 
 <br>
@@ -80,7 +50,7 @@ encode(input, options = {
 ## Install
 
 ```javascript
-	npm install --save encode-entities
+npm install --save encode-entities
 ```
 
 <br>
@@ -88,7 +58,7 @@ encode(input, options = {
 ## Test
 
 ```javascript
-	npm test
+npm test
 ```
 
 <br>
@@ -96,5 +66,5 @@ encode(input, options = {
 ## Benchmark
 
 ```javascript
-	npm run benchmark
+npm run benchmark
 ```
