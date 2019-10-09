@@ -4,7 +4,8 @@
 /node_modules/
 ## Assets directory
 /assets/
-
+## Release directory
+/release/
 
 # Files
 
