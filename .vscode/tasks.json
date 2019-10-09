@@ -21,9 +21,7 @@
 			"label": "benchmark",
 			"type": "shell",
 			"command": "node",
-			"args": [
-				"${file}"
-			],
+			"args": ["${file}"],
 			"presentation": {
 				"echo": true,
 				"reveal": "always",

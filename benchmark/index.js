@@ -1,59 +1,99 @@
-const Benchmark=require('benchmark')
-const Beautifier=require('beautify-benchmark')
-const Encoder=require('../index')
-const fs=require('fs')
+const Benchmark = require('benchmark')
+const Beautifier = require('beautify-benchmark')
+const Encoder = require('../index')
+const fs = require('fs')
 
-const suite=new Benchmark.Suite()
+const suite = new Benchmark.Suite()
+const encoder = new Encoder()
 
-suite.add('empty string', function () {
-	Encoder.encode('')
-}, {
-	'minSamples': 100
-})
+suite.add(
+	'encode(undefined)',
+	function() {
+		encoder.encode(undefined)
+	},
+	{
+		minSamples: 100
+	}
+)
 
-suite.add('non special character', function () {
-	Encoder.encode('a')
-}, {
-	'minSamples': 100
-})
+suite.add(
+	'encode(null)',
+	function() {
+		encoder.encode(null)
+	},
+	{
+		minSamples: 100
+	}
+)
 
-suite.add('non special characters', function () {
-	Encoder.encode('abc')
-}, {
-	'minSamples': 100
-})
+suite.add(
+	"encode('')",
+	function() {
+		encoder.encode('')
+	},
+	{
+		minSamples: 100
+	}
+)
 
-suite.add('encode a single character', function () {
-	Encoder.encode('<')
-}, {
-	'minSamples': 100
-})
+suite.add(
+	"encode('a')",
+	function() {
+		encoder.encode('a')
+	},
+	{
+		minSamples: 100
+	}
+)
 
-suite.add('encode a single tag', function () {
-	Encoder.encode('<strong></strong>')
-}, {
-	'minSamples': 100
-})
+suite.add(
+	"encode('abcdefg')",
+	function() {
+		encoder.encode('abcdefg')
+	},
+	{
+		minSamples: 100
+	}
+)
 
-const smallDocument=fs.readFileSync(__dirname+'/assets/small.html').toString()
+suite.add(
+	"encode('<')",
+	function() {
+		encoder.encode('<')
+	},
+	{
+		minSamples: 100
+	}
+)
 
-suite.add('encode small document', function () {
-	Encoder.encode(smallDocument)
-}, {
-	'minSamples': 100
-})
+suite.add(
+	"encode('<em></em>')",
+	function() {
+		encoder.encode('<em></em>')
+	},
+	{
+		minSamples: 100
+	}
+)
 
-const largeDocument=fs.readFileSync(__dirname+'/assets/large.html').toString()
+const smallDocument = fs
+	.readFileSync(__dirname + '/assets/small.html')
+	.toString()
 
-suite.add('encode large document', function () {
-	Encoder.encode(largeDocument)
-}, {
-	'minSamples': 100
-})
-	.on('cycle', function (event) {
+suite
+	.add(
+		'encode a small document',
+		function() {
+			encoder.encode(smallDocument)
+		},
+		{
+			minSamples: 100
+		}
+	)
+	.on('cycle', function(event) {
 		Beautifier.add(event.target)
 	})
 	.on('complete', () => {
 		Beautifier.log()
 	})
-	.run({ 'async': false })
+	.run({ async: false })

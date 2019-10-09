@@ -2,11 +2,11 @@
 
 ## Visual Studio Code directory
 /.vscode/
-# Benchmarking directory
+## Benchmarking directory
 /benchmark/
-# Tests directory
+## Tests directory
 /test/
-# GitHub directory
+## GitHub directory
 /.github/
 
 # Files
