@@ -1,6 +1,6 @@
 {
 	"name": "encode-entities",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Fast and simple Map and RegExp based HTML entities encoder.",
 	"main": "index.js",
 	"scripts": {
@@ -25,7 +25,7 @@
 	"author": "Igor Dimitrijević",
 	"license": "MIT",
 	"dependencies": {
-		"mapped-replacer": "^1.0.2"
+		"mapped-replacer": "^1.0.3"
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
