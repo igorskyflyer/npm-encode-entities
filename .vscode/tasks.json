@@ -31,6 +31,14 @@
 				"clear": true
 			},
 			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
