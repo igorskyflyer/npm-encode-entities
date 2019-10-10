@@ -119,4 +119,29 @@ describe('Encode Entities', () => {
 			assert.equal(result, 21)
 		})
 	})
+
+	describe('rulesCount() after removeRule()', () => {
+		it('should return 20', () => {
+			encoder.addRules({
+				'𝕋': '&#120139;',
+				'≈': '&#8776;',
+				'𝔱': '&#120113;'
+			})
+			encoder.removeRule('≈')
+
+			const result = encoder.rulesCount()
+			assert.equal(result, 20)
+		})
+	})
+
+	describe('resetRules() with encode()', () => {
+		it('should return an encoded string', () => {
+			encoder.addRule('<', '😀')
+			encoder.addRule('>', '😂')
+			encoder.resetRules()
+
+			const result = encoder.encode('<strong>')
+			assert.equal(result, '&#60;strong&#62;')
+		})
+	})
 })
