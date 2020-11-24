@@ -39,7 +39,9 @@ npm i encode-entities
 _Resets the rules to the default ones._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 encoder.addRule('<', '😀')
 encoder.addRule('>', '😂')
@@ -55,7 +57,9 @@ console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
 _Adds a new rule or updates the existing rule for entities encoding. Returns true if the rule was added successfully or false if not._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 encoder.addRule('→', '&#8594;')
 console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
@@ -70,12 +74,14 @@ _Passed objects are simple key-value objects, i.e. **{ '<': '\&#60;' }**_<br>
 _Returns true if the rules were added successfully or false if not._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 encoder.addRules({
-	'𝕋': '&#120139;',
-	'≈': '&#8776;',
-	'𝔱': '&#120113;'
+  '𝕋': '&#120139;',
+  '≈': '&#8776;',
+  '𝔱': '&#120113;',
 })
 
 console.log(encoder.encode('<span>𝕋 ≈ 𝔱</span>')) // outputs '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;'
@@ -89,12 +95,14 @@ _Removes the rule that matches the provided key._
 _Returns true if the rule was removed successfully or false if not._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 encoder.addRules({
-	'𝕋': '&#120139;',
-	'≈': '&#8776;',
-	'𝔱': '&#120113;'
+  '𝕋': '&#120139;',
+  '≈': '&#8776;',
+  '𝔱': '&#120113;',
 })
 encoder.removeRule('≈')
 
@@ -108,12 +116,14 @@ console.log(encoder.rulesCount()) // outputs 20
 _Gets the number of rules for entity encoding._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 encoder.addRules({
-	'𝕋': '&#120139;',
-	'≈': '&#8776;',
-	'𝔱': '&#120113;'
+  '𝕋': '&#120139;',
+  '≈': '&#8776;',
+  '𝔱': '&#120113;',
 })
 
 console.log(encoder.rulesCount()) // outputs 21
@@ -126,7 +136,9 @@ console.log(encoder.rulesCount()) // outputs 21
 _Encodes special characters in the given string to HTML entities._
 
 ```javascript
-const encoder = require('encode-entities')
+const Encoder = require('encode-entities')
+
+const encoder = new Encoder()
 
 console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
 ```
