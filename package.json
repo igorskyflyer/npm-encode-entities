@@ -1,39 +1,37 @@
 {
-	"name": "encode-entities",
-	"version": "1.0.6",
-	"description": "Fast and simple Map and RegExp based HTML entities encoder.",
-	"main": "index.js",
-	"scripts": {
-		"test": "mocha --slow 0",
-		"benchmark": "node ./benchmark/index.js",
-		"postpack": "if exist encode-entities*.tgz (move encode-entities*.tgz release)",
-		"publish": "npm publish",
-		"build": "npm pack && npm publish"
-	},
-	"keywords": [
-		"entity",
-		"html",
-		"string",
-		"encode",
-		"escape"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/igorskyflyer/npm-encode-entities.git"
-	},
-	"bugs": {
-		"url": "https://github.com/igorskyflyer/npm-encode-entities/issues"
-	},
-	"homepage": "https://github.com/igorskyflyer/npm-encode-entities#readme",
-	"author": "Igor Dimitrijević",
-	"license": "MIT",
-	"dependencies": {
-		"mapped-replacer": "^1.0.4"
-	},
-	"devDependencies": {
-		"chai": "^4.2.0",
-		"mocha": "^6.2.0",
-		"benchmark": "^2.1.4",
-		"beautify-benchmark": "^0.2.4"
-	}
+  "name": "encode-entities",
+  "version": "1.0.6",
+  "description": "Fast and simple Map and RegExp based HTML entities encoder.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --slow 0",
+    "benchmark": "node ./benchmark/index.js",
+    "party": "npm test && npm publish"
+  },
+  "keywords": [
+    "entity",
+    "html",
+    "string",
+    "encode",
+    "escape"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorskyflyer/npm-encode-entities.git"
+  },
+  "bugs": {
+    "url": "https://github.com/igorskyflyer/npm-encode-entities/issues"
+  },
+  "homepage": "https://github.com/igorskyflyer/npm-encode-entities#readme",
+  "author": "Igor Dimitrijević",
+  "license": "MIT",
+  "dependencies": {
+    "mapped-replacer": "^1.0.4"
+  },
+  "devDependencies": {
+    "beautify-benchmark": "^0.2.4",
+    "benchmark": "^2.1.4",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
 }
