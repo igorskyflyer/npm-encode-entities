@@ -1,6 +1,6 @@
 {
   "name": "encode-entities",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Fast and simple Map and RegExp based HTML entities encoder.",
   "main": "index.js",
   "scripts": {
