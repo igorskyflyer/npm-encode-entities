@@ -3,7 +3,7 @@
  *
  * @author Igor Dimitrijević <igor.dvlpr@gmail.com>
  * @license MIT
- * @copyright Igor Dimitrijević, 2019.
+ * @copyright Igor Dimitrijević, 2021.
  *
  */
 
@@ -54,10 +54,10 @@ class Encoder {
   }
 
   /**
-   * Adds an array of rules or updates the existing rules for entity encoding.
+   * Adds rules or updates the existing rules for entity encoding.
    *
-   * Passed objects are simple key-value objects, i.e. { '<': '\&#60;' }
-   * @param {Object[]} rules
+   * Passed object is a simple key-value object, i.e. { '<': '\&#60;', '>': '&#62;' }
+   * @param {Object} rules
    * @return {boolean}
    */
   addRules(rules) {
