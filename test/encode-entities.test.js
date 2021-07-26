@@ -1,4 +1,4 @@
-const Encoder = require('../index')
+const Encoder = require('../encode-entities')
 const assert = require('chai').assert
 
 const htmlDocument = `
@@ -15,6 +15,8 @@ const htmlDocument = `
 	</body>
 </html>
 `
+
+let encoder = null
 
 describe('library', () => {
   beforeEach(() => {
@@ -77,10 +79,7 @@ describe('library', () => {
     it('should encode with the new rule', () => {
       encoder.addRule('→', '&#8594;')
       const result = encoder.encode('<a href="#">→</a>')
-      assert.equal(
-        result,
-        '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
-      )
+      assert.equal(result, '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;')
     })
   })
 
@@ -100,10 +99,7 @@ describe('library', () => {
         '𝔱': '&#120113;',
       })
       const result = encoder.encode('<span>𝕋 ≈ 𝔱</span>')
-      assert.equal(
-        result,
-        '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;'
-      )
+      assert.equal(result, '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;')
     })
   })
 
