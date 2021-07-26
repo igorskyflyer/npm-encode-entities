@@ -10,7 +10,7 @@
 	"types": "./dist/encode-entities.d.ts",
 	"scripts": {
 		"test": "mocha --slow 0",
-		"party": "npm test && tsc && npm publish"
+		"pub": "npm test && tsc && npm publish"
 	},
 	"keywords": [
 		"entity",
