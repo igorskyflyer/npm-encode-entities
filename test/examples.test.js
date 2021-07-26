@@ -1,4 +1,4 @@
-const Encoder = require('../index')
+const Encoder = require('../encode-entities')
 const assert = require('chai').assert
 
 describe('examples', () => {
@@ -19,10 +19,7 @@ describe('examples', () => {
       const encoder = new Encoder()
 
       encoder.addRule('→', '&#8594;')
-      assert.equal(
-        encoder.encode('<a href="#">→</a>'),
-        '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
-      )
+      assert.equal(encoder.encode('<a href="#">→</a>'), '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;')
     })
   })
 
@@ -36,10 +33,7 @@ describe('examples', () => {
         '𝔱': '&#120113;',
       })
 
-      assert.equal(
-        encoder.encode('<span>𝕋 ≈ 𝔱</span>'),
-        '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;'
-      )
+      assert.equal(encoder.encode('<span>𝕋 ≈ 𝔱</span>'), '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;')
     })
   })
 
