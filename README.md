@@ -67,10 +67,10 @@ console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&
 
 <br>
 
-### addRules(rules: Object[]): boolean
+### addRules(rules: Object): boolean
 
-_Adds an array of rules or updates the existing rules for entity encoding._<br>
-_Passed objects are simple key-value objects, i.e. **{ '<': '\&#60;' }**_<br>
+_Adds rules or updates the existing rules for entity encoding._<br>
+_Passed object is a simple key-value object, i.e. **{ '<': '\&#60;', '>': '\&#62;' }**_<br>
 _Returns true if the rules were added successfully or false if not._
 
 ```javascript
