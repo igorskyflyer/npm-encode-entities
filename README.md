@@ -1,8 +1,18 @@
-# Encode Entities
+# 🏃‍♂️ Encode Entities 🍁
+
+<br>
+
+_🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder.🍁_
+
+<br>
 
 Fast and simple Map and RegExp based HTML entities encoder. In order to overcome different methods of possible XSS attacks, it by default encodes the following characters: **<**, **>**, **"**, **'**, **&**, **=**, `**,** **!**, **@**, **\$**, **%**, **(**, **)**, **+**, **{**, **}**, **[**, **]**.<br>_You can however remove any of these rules and/or add your own._
 
 > Uses the [MappedReplacer](https://www.npmjs.com/package/mapped-replacer) package.
+
+<br>
+
+✨Since version `1.1.0` `Encode Entities` is a hybrid module that supports both CommonJS (legacy) and ES modules, thanks to [Modern Module](https://github.com/igorskyflyer/npm-modern-module).
 
 <br>
 
