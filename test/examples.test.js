@@ -1,4 +1,4 @@
-const Encoder = require('../encode-entities')
+const Encoder = require('../src/index')
 const assert = require('chai').assert
 
 describe('examples', () => {
