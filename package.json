@@ -1,13 +1,24 @@
 {
 	"name": "encode-entities",
-	"version": "1.0.10",
+	"version": "1.1.0",
 	"description": "🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder.🍁",
-	"main": "encode-entities.js",
+	"engines": {
+		"node": ">=12.17"
+	},
+	"sideEffects": false,
+	"main": "./src/index",
+	"exports": {
+		".": {
+			"require": "./src/index.js",
+			"import": "./src/index.mjs"
+		}
+	},
+	"module": "./src/index.mjs",
+	"types": "./dist/index",
 	"files": [
-		"encode-entities.js",
-		"dist"
+		"dist",
+		"src"
 	],
-	"types": "./dist/encode-entities.d.ts",
 	"scripts": {
 		"test": "mocha --slow 0",
 		"pub": "npm test && tsc && npm publish"
@@ -30,9 +41,11 @@
 	"author": "Igor Dimitrijević",
 	"license": "MIT",
 	"dependencies": {
-		"mapped-replacer": "^1.0.10"
+		"mapped-replacer": "^1.1.0"
 	},
 	"devDependencies": {
+		"@types/chai": "^4.2.21",
+		"@types/mocha": "^9.0.0",
 		"chai": "^4.3.4",
 		"mocha": "^9.0.3"
 	}
