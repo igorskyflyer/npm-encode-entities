@@ -1,7 +1,7 @@
 {
 	"name": "encode-entities",
-	"version": "1.1.0",
-	"description": "🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder.🍁",
+	"version": "1.1.1",
+	"description": "🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder. 🍁",
 	"engines": {
 		"node": ">=12.17"
 	},
