@@ -41,7 +41,7 @@
 	"author": "Igor Dimitrijević",
 	"license": "MIT",
 	"dependencies": {
-		"mapped-replacer": "^1.1.0"
+		"mapped-replacer": "^1.2.1"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.3",
