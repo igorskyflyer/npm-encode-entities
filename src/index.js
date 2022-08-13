@@ -7,7 +7,7 @@
  *
  */
 
-const MappedReplacer = require('mapped-replacer')
+const { MappedReplacer } = require('mapped-replacer')
 
 class Encoder {
   constructor() {
