@@ -6,6 +6,10 @@ _🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder.🍁_
 
 <br>
 
+> This package has been deprecated, please use [@igor.dvlpr/encode-entities](https://www.npmjs.com/package/@igor.dvlpr/encode-entities) instead.
+
+<br>
+
 Fast and simple Map and RegExp based HTML entities encoder. In order to overcome different methods of possible XSS attacks, it by default encodes the following characters: **<**, **>**, **"**, **'**, **&**, **=**, `**,** **!**, **@**, **\$**, **%**, **(**, **)**, **+**, **{**, **}**, **[**, **]**.<br>_You can however remove any of these rules and/or add your own._
 
 > Uses the [MappedReplacer](https://www.npmjs.com/package/mapped-replacer) package.
