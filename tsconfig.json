@@ -3,22 +3,23 @@
 		"src/**/*"
 	],
 	"exclude": [
-		"node_modules/**/*"
+		"node_modules/**/*",
+		"test/**/*"
 	],
 	"compilerOptions": {
-		"module": "ES6",
-		"allowJs": true,
-		"checkJs": false,
+		"target": "ES2022",
+		"module": "NodeNext",
 		"declaration": true,
-		"emitDeclarationOnly": true,
+		"outDir": "./dist",
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"declarationDir": "dist",
-		"moduleResolution": "node",
-		"allowSyntheticDefaultImports": true,
+		"declarationDir": "./dist",
+		"moduleResolution": "nodenext",
 		"noEmitOnError": true,
 		"strict": true,
 		"noUnusedLocals": true,
-		"noUnusedParameters": true
+		"noUnusedParameters": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true
 	}
 }
