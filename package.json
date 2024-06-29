@@ -1,35 +1,36 @@
 {
-	"name": "encode-entities",
-	"version": "1.1.2",
+	"name": "@igor.dvlpr/encode-entities",
+	"version": "1.0.0",
 	"description": "🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder. 🍁",
-	"engines": {
-		"node": ">=12.17"
-	},
 	"sideEffects": false,
-	"main": "./src/index",
-	"exports": {
-		".": {
-			"require": "./src/index.js",
-			"import": "./src/index.mjs"
-		}
+	"engines": {
+		"node": ">=20.0"
 	},
-	"module": "./src/index.mjs",
-	"types": "./dist/index",
+	"types": "./dist/index.d.mts",
+	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
 	"files": [
-		"dist",
-		"src"
+		"dist"
 	],
 	"scripts": {
-		"test": "mocha --slow 0",
-		"pub": "npm test && tsc && npm publish"
+		"build": "tsc",
+		"test": "vitest --run",
+		"debug": "vitest",
+		"pub": "npm test && npm run build && npm publish --access public"
 	},
 	"keywords": [
 		"entity",
 		"html",
 		"string",
 		"encode",
-		"escape"
+		"escape",
+		"igorskyflyer",
+		"igor.dvlpr"
 	],
+	"license": "MIT",
+	"author": "Igor Dimitrijević <igor.dvlpr@gmail.com> (https://github.com/igorskyflyer)",
+	"funding": "https://ko-fi.com/igorskyflyer",
+	"homepage": "https://github.com/igorskyflyer/npm-encode-entities",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/igorskyflyer/npm-encode-entities.git"
@@ -37,17 +38,13 @@
 	"bugs": {
 		"url": "https://github.com/igorskyflyer/npm-encode-entities/issues"
 	},
-	"homepage": "https://github.com/igorskyflyer/npm-encode-entities#readme",
-	"author": "Igor Dimitrijević",
-	"license": "MIT",
 	"dependencies": {
-		"mapped-replacer": "^1.2.1"
+		"@igor.dvlpr/mapped-replacer": "^1.0.0"
 	},
 	"devDependencies": {
-		"@types/chai": "^4.3.3",
-		"@types/mocha": "^9.1.1",
-		"chai": "^4.3.6",
-		"mocha": "^10.0.0",
-		"typescript": "^4.7.4"
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^20.14.9",
+		"typescript": "^5.5.2",
+		"vitest": "^1.6.0"
 	}
 }
