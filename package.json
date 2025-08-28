@@ -1,6 +1,6 @@
 {
     "name": "@igorskyflyer/encode-entities",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder. 🍁",
     "sideEffects": false,
     "engines": {
