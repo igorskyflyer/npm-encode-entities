@@ -85,7 +85,7 @@ npm i @igorskyflyer/encode-entities
 _Resets the rules to the default ones._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
@@ -103,10 +103,26 @@ console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
 _Adds a new rule for entities encoding. Returns true if the rule was added successfully or false if not._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 encoder.addRule('&#8594;', '→')
+
+console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
+```
+
+<br>
+
+### updateRule(replaceWith: string, searchFor: string): boolean
+
+_Updates an existing rule for entity encoding. Returns true if the rule was updated successfully or false if not._
+
+```ts
+import { Encoder } from '@igorskyflyer/encode-entities'
+
+const encoder: Encoder = new Encoder()
+encoder.addRule('&#8592;', '→')
+encoder.updateRule('&#8594;', '→')
 
 console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
 ```
@@ -120,7 +136,7 @@ _Passed object is a simple key-value object, i.e. **{ '<': '\&#60;', '>': '\&#62
 _Returns true if the rules were added successfully or false if not._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
@@ -141,7 +157,7 @@ _Removes the rule that matches the provided key._
 _Returns true if the rule was removed successfully or false if not._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
@@ -162,7 +178,7 @@ console.log(encoder.rulesCount()) // outputs 20
 _Gets the number of rules for entity encoding._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
@@ -182,7 +198,7 @@ console.log(encoder.rulesCount()) // outputs 21
 _Encodes special characters in the given string to HTML entities._
 
 ```ts
-import { Encoder } from '@igor.dvlpr/encode-entities'
+import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
@@ -225,23 +241,23 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 ## 🧬 Related
 
-[@igor.dvlpr/str-is-in](https://www.npmjs.com/package/@igor.dvlpr/str-is-in)
+[@igorskyflyer/str-is-in](https://www.npmjs.com/package/@igorskyflyer/str-is-in)
 
 > _🧵 Provides ways of checking whether a String is present in an Array of Strings using custom Comparators. 🔍_
 
-[@igor.dvlpr/aria](https://www.npmjs.com/package/@igor.dvlpr/aria)
+[@igorskyflyer/aria](https://www.npmjs.com/package/@igorskyflyer/aria)
 
 > _🧬 Meet Aria, an efficient Adblock filter list compiler, with many features that make your maintenance of Adblock filter lists a breeze! 🗡_
 
-[@igor.dvlpr/pathexists](https://www.npmjs.com/package/@igor.dvlpr/pathexists)
+[@igorskyflyer/pathexists](https://www.npmjs.com/package/@igorskyflyer/pathexists)
 
 > _🧲 Provides ways of properly checking if a path exists inside a given array of files/directories both on Windows and UNIX-like operating systems. 🗺_
 
-[@igor.dvlpr/chars-in-string](https://www.npmjs.com/package/@igor.dvlpr/chars-in-string)
+[@igorskyflyer/chars-in-string](https://www.npmjs.com/package/@igorskyflyer/chars-in-string)
 
 > _🪐 Provides ways of testing whether an array of chars is present inside a given String. ☄_
 
-[@igor.dvlpr/valid-path](https://www.npmjs.com/package/@igor.dvlpr/valid-path)
+[@igorskyflyer/valid-path](https://www.npmjs.com/package/@igorskyflyer/valid-path)
 
 > _🧰 Provides ways of testing whether a given value can be a valid file/directory name. 🏜_
 
