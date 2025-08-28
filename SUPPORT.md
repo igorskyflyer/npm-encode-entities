@@ -1,6 +1,6 @@
 # 🛠️ Support
 
-Hello, thank you for using {{project}}! 🙋🏻‍♂️  
+Hello, thank you for using Encode Entities! 🙋🏻‍♂️  
 
 Whether you're exploring its features, troubleshooting, or suggesting improvements, let's make your experience as smooth as possible.
 
@@ -10,8 +10,8 @@ Whether you're exploring its features, troubleshooting, or suggesting improvemen
 
 For usage instructions, setup tips, and general inquiries see below:
 
-- Check the [`README`](https://github.com/igorskyflyer/{{repo}}/blob/main/README.md) for documentation and setup guidance.
-- Search [`issues`](https://github.com/igorskyflyer/{{repo}}/issues) to see if your question has already been answered.
+- Check the [`README`](https://github.com/igorskyflyer/npm-encode-entities/blob/main/README.md) for documentation and setup guidance.
+- Search [`issues`](https://github.com/igorskyflyer/npm-encode-entities/issues) to see if your question has already been answered.
 - Open a new issue with the `question` label or the appropriate issue template if you need help.
 
 ---
@@ -19,10 +19,10 @@ For usage instructions, setup tips, and general inquiries see below:
 ## 🐛 Bug Reports
 
 All of my projects are heavily tested but bugs can sneak through. If you do find one, please follow the steps:
-- open a [`new issue`](https://github.com/igorskyflyer/{{repo}}/issues) using the appropriate issue template and with the label of `bug`,
+- open a [`new issue`](https://github.com/igorskyflyer/npm-encode-entities/issues) using the appropriate issue template and with the label of `bug`,
 - include details such as:
    - steps to reproduce
-   - {{project}} version
+   - Encode Entities version
    - device and OS details,
 - screenshots, error message are super helpful and appreciated!
 
@@ -33,7 +33,7 @@ All of my projects are heavily tested but bugs can sneak through. If you do find
 If you have an idea for a new feature or an enhancement for an existing feature, you're more than welcome to suggest it!  
 
 Do so by:
-- opening a [`new issue`](https://github.com/igorskyflyer/{{repo}}/issues) using the appropriate issue template and with the label of `feature`,
+- opening a [`new issue`](https://github.com/igorskyflyer/npm-encode-entities/issues) using the appropriate issue template and with the label of `feature`,
 - explain your use case, the reasoning behind it and how it enhances the extension,
 - **Bonus**: include examples, mockups, etc.
 
@@ -43,7 +43,7 @@ Do so by:
 
 Any kind of contributions are more than welcome!  
 
-- See [`CONTRIBUTING.md`](https://github.com/igorskyflyer/{{repo}}/blob/main/CONTRIBUTING.md) for guidelines.
+- See [`CONTRIBUTING.md`](https://github.com/igorskyflyer/npm-encode-entities/blob/main/CONTRIBUTING.md) for guidelines.
 - Submit an issue or a pull request.
 - Ask relevant questions.
 - Fund the project and help it stay active, see the [`Support the Project`](#-support-the-project) section below.
@@ -65,7 +65,7 @@ Need to reach me directly or share your feedback?
 
 <br>
 
-If you'd like to support further development of {{project}}:
+If you'd like to support further development of Encode Entities:
 - buy me a coffee at [Ko-Fi](https://ko-fi.com/igorskyflyer) ☕
 - star the repository ⭐
 - share the project with your colleagues, team or network 🌍
@@ -76,7 +76,7 @@ If you'd like to support further development of {{project}}:
 <br>
 
 <div align="center">
-  Thank you for using {{project}}!
+  Thank you for using Encode Entities!
   <br>
   <strong>Igor Dimitrijević</strong> (<a href="https://github.com/igorskyflyer"><em>@igorskyflyer</em></a>)
 </div>
