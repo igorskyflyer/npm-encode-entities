@@ -1,52 +1,85 @@
-# 🏃‍♂️ Encode Entities 🍁
-
-<br>
-
-🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder. 🍁
-
-<br>
-<br>
-
 <div align="center">
-	<blockquote>
-		<h4>💖 Support further development</h4>
-		<span>I work hard for every project, including this one and your support means a lot to me!
-		<br>
-		Consider buying me a coffee. ☕
-		<br>
-		<strong>Thank you for supporting my efforts! 🙏😊</strong></span>
-		<br>
-		<br>
-		<a href="https://ko-fi.com/igorskyflyer" target="_blank"><img src="https://raw.githubusercontent.com/igorskyflyer/igorskyflyer/main/assets/ko-fi.png" alt="Donate to igorskyflyer" width="150"></a>
-		<br>
-		<br>
-		<a href="https://github.com/igorskyflyer"><em>@igorskyflyer</em></a>
-		<br>
-		<br>
-	</blockquote>
+  <img src="https://raw.githubusercontent.com/igorskyflyer/npm-encode-entities/main/media/encode-entities.png" alt="Icon of Encode Entities" width="256" height="256">
+  <h1>Encode Entities</h1>
 </div>
 
 <br>
 
-Fast and simple Map and RegExp based HTML entities encoder. In order to overcome different methods of possible XSS attacks, it by default encodes the following characters: **<**, **>**, **"**, **'**, **&**, **=**, `**,** **!**, **@**, **\$**, **%**, **(**, **)**, **+**, **{**, **}**, **[**, **]**.<br>_You can however remove any of these rules and/or add your own._
+<h4 align="center">
+  🏃‍♂️ Fast and simple Map and RegExp based HTML entities encoder. 🍁
+</h4>
+
+<br>
+<br>
+
+## 📃 Table of Contents
+
+- [Features](#-features)
+- [Usage](#-usage)
+- [API](#-api)
+- [Changelog](#-changelog)
+- [Support](#-support)
+- [License](#-license)
+- [Related](#-related)
+- [Author](#-author)
+
+<br>
+<br>
+
+## 🤖 Features
+
+- ⚡ Instant HTML encoding for special characters
+- 🛠 Add your own custom encoding rules
+- ♻ Reset back to default rules anytime
+- ✏️ Update individual rules on the fly
+- ❌ Remove unwanted rules easily
+- 📊 See exactly how many rules are active
+- 🚀 Single‑pass, high‑performance replacement engine powered by [`@igorskyflyer/mapped-replacer`](https://www.npmjs.com/package/@igorskyflyer/mapped-replacer)
 
 <br>
 
-> Uses the [@igor.dvlpr/mapped-replacer](https://www.npmjs.com/package/@igor.dvlpr/mapped-replacer) package.
+> ❗ **IMPORTANT**
+>
+> *🛡 Security*
+> Encodes special characters into HTML entities, helping mitigate XSS risks in the textual layer by ensuring user‑supplied content is treated as text, not executable code.
+>
+> (Note: not a full XSS solution, context‑aware escaping is still **required**.)
+>
 
+<br>
 <br>
 
 ## 🕵🏼 Usage
 
-Install it by executing:
+Install it by executing any of the following, depending on your preferred package manager:
 
-```shell
-npm i "@igor.dvlpr/encode-entities"
+```bash
+pnpm add @igorskyflyer/encode-entities
+```
+
+```bash
+yarn add @igorskyflyer/encode-entities
+```
+
+```bash
+npm i @igorskyflyer/encode-entities
 ```
 
 <br>
+<br>
 
 ## 🤹🏼 API
+
+> 💡 **TIP**
+>
+> *Encoded by default:*
+> **<**, **>**, **"**, **'**, **&**, **=**, `**,** **!**, **@**, **\$**, **%**, **(**, **)**, **+**, **{**, **}**, **[**, **]**.
+>
+> You can however remove any of these rules and/or add your own.
+>
+
+<br>
+
 
 ### resetRules(): void
 
@@ -57,8 +90,8 @@ import { Encoder } from '@igor.dvlpr/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
-encoder.addRule('<', '😀')
-encoder.addRule('>', '😂')
+encoder.addRule('😀', '<')
+encoder.addRule('😂', '>')
 encoder.resetRules()
 
 console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
@@ -68,14 +101,14 @@ console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
 
 ### addRule(key: string, value: string): boolean
 
-_Adds a new rule or updates the existing rule for entities encoding. Returns true if the rule was added successfully or false if not._
+_Adds a new rule for entities encoding. Returns true if the rule was added successfully or false if not._
 
 ```ts
 import { Encoder } from '@igor.dvlpr/encode-entities'
 
 const encoder: Encoder = new Encoder()
+encoder.addRule('&#8594;', '→')
 
-encoder.addRule('→', '&#8594;')
 console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
 ```
 
@@ -83,7 +116,7 @@ console.log(encoder.encode('<a href="#">→</a>')) // outputs '&#60;a href&#61;&
 
 ### addRules(rules: Object): boolean
 
-_Adds rules or updates the existing rules for entity encoding._<br>
+_Adds rules for entity encoding._<br>
 _Passed object is a simple key-value object, i.e. **{ '<': '\&#60;', '>': '\&#62;' }**_<br>
 _Returns true if the rules were added successfully or false if not._
 
@@ -93,9 +126,9 @@ import { Encoder } from '@igor.dvlpr/encode-entities'
 const encoder: Encoder = new Encoder()
 
 encoder.addRules({
-  '𝕋': '&#120139;',
-  '≈': '&#8776;',
-  '𝔱': '&#120113;',
+  '&#120139;':'𝕋'
+  '&#8776;':'≈'
+  '&#120113;':'𝔱'
 })
 
 console.log(encoder.encode('<span>𝕋 ≈ 𝔱</span>')) // outputs '&#60;span&#62;&#120139; &#8776; &#120113;&#60;/span&#62;'
@@ -114,9 +147,9 @@ import { Encoder } from '@igor.dvlpr/encode-entities'
 const encoder: Encoder = new Encoder()
 
 encoder.addRules({
-  '𝕋': '&#120139;',
-  '≈': '&#8776;',
-  '𝔱': '&#120113;',
+  '&#120139;': '𝕋',
+  '&#8776;': '≈',
+  '&#120113;': '𝔱'
 })
 encoder.removeRule('≈')
 
@@ -135,9 +168,9 @@ import { Encoder } from '@igor.dvlpr/encode-entities'
 const encoder: Encoder = new Encoder()
 
 encoder.addRules({
-  '𝕋': '&#120139;',
-  '≈': '&#8776;',
-  '𝔱': '&#120113;',
+  '&#120139;': '𝕋',
+  '&#8776;': '≈',
+  '&#120113;': '𝔱',
 })
 
 console.log(encoder.rulesCount()) // outputs 21
@@ -157,13 +190,39 @@ const encoder: Encoder = new Encoder()
 console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
 ```
 
----
+<br>
+<br>
+
+## 📝 Changelog
+
+📑 The changelog is available here, [CHANGELOG.md](https://github.com/igorskyflyer/npm-encode-entities/blob/main/CHANGELOG.md).
+
+<br>
+<br>
 
 ## 🪪 License
 
 Licensed under the MIT license which is available here, [MIT license](https://github.com/igorskyflyer/npm-encode-entities/blob/main/LICENSE).
 
----
+<br>
+<br>
+
+## 💖 Support
+
+<div align="center">
+  I work hard for every project, including this one and your support means a lot to me!
+  <br>
+  Consider buying me a coffee. ☕
+  <br>
+  <br>
+  <a href="https://ko-fi.com/igorskyflyer" target="_blank"><img src="https://raw.githubusercontent.com/igorskyflyer/igorskyflyer/main/assets/ko-fi.png" alt="Donate to igorskyflyer" width="180" height="46"></a>
+  <br>
+  <br>
+  <em>Thank you for supporting my efforts!</em> 🙏😊
+</div>
+
+<br>
+<br>
 
 ## 🧬 Related
 
@@ -189,7 +248,7 @@ Licensed under the MIT license which is available here, [MIT license](https://gi
 
 <br>
 <br>
+<br>
 
->
-> Provided by **Igor Dimitrijević** ([*@igorskyflyer*](https://github.com/igorskyflyer/)).
->
+## 👨🏻‍💻 Author
+Created by **Igor Dimitrijević** ([*@igorskyflyer*](https://github.com/igorskyflyer/)).
