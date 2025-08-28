@@ -34,7 +34,7 @@
 - ✏️ Update individual rules on the fly
 - ❌ Remove unwanted rules easily
 - 📊 See exactly how many rules are active
-- 🚀 Single‑pass, high‑performance replacement engine powered by [`@igorskyflyer/mapped-replacer`](https://www.npmjs.com/package/@igorskyflyer/mapped-replacer)
+- 🚀 Single‑pass, high‑performance replacement engine (powered by [`@igorskyflyer/mapped-replacer`](https://www.npmjs.com/package/@igorskyflyer/mapped-replacer))
 
 <br>
 
