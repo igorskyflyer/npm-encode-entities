@@ -1,11 +1,16 @@
-## 📒 Changelog
+# 📒 Changelog
 
-### of [@igor.dvlpr/encode-entities](https://github.com/igorskyflyer/npm-encode-entities)
+### of [@igorskyflyer/encode-entities](https://github.com/igorskyflyer/npm-encode-entities)
 
 <br>
 
-## v1.0.0
+## v1.0.1 (*28-Aug-2025*)
 
-<p align="right"><em>30-Jun-2024</em></p>
+- **💻 dev**: upgrade Node to >= 22
+- **💻 dev**: upgrade dependencies
+
+<br>
+
+## v1.0.0 (*30-Jun-2024*)
 
 - **🚀 launch**: initial release 🎉
