@@ -46,8 +46,20 @@ describe('🧪 Encode Entities tests (examples) 🧪', () => {
     }) // #3
   })
 
+  suite('updateRule()', () => {
+    test('#4 should return "&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;"', () => {
+      encoder.addRule('&#8592;', '→')
+      encoder.updateRule('&#8594;', '→')
+
+      assert.equal(
+        encoder.encode('<a href="#">→</a>'),
+        '&#60;a href&#61;&#34;#&#34;&#62;&#8594;&#60;/a&#62;'
+      )
+    }) // #4
+  })
+
   suite('removeRule()', () => {
-    test('#4 should return 20', () => {
+    test('#5 should return 20', () => {
       encoder.addRules({
         '&#120139;': '𝕋',
         '&#8776;': '≈',
@@ -57,11 +69,11 @@ describe('🧪 Encode Entities tests (examples) 🧪', () => {
       encoder.removeRule('≈')
 
       assert.equal(encoder.rulesCount(), 20)
-    }) // #4
+    }) // #5
   })
 
   suite('rulesCount()', () => {
-    test('#5 should return 21', () => {
+    test('#6 should return 21', () => {
       encoder.addRules({
         '&#120139;': '𝕋',
         '&#8776;': '≈',
@@ -69,12 +81,12 @@ describe('🧪 Encode Entities tests (examples) 🧪', () => {
       })
 
       assert.equal(encoder.rulesCount(), 21)
-    }) // #5
+    }) // #6
   })
 
   suite('encode(string)', () => {
-    test('#6 should return "&#60;strong&#62;"', () => {
+    test('#7 should return "&#60;strong&#62;"', () => {
       assert.equal(encoder.encode('<strong>'), '&#60;strong&#62;')
-    }) // #6
+    }) // #7
   })
 })
