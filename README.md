@@ -89,8 +89,8 @@ import { Encoder } from '@igorskyflyer/encode-entities'
 
 const encoder: Encoder = new Encoder()
 
-encoder.addRule('😀', '<')
-encoder.addRule('😂', '>')
+encoder.updateRule('😀', '<')
+encoder.updateRule('😂', '>')
 encoder.resetRules()
 
 console.log(encoder.encode('<strong>')) // outputs '&#60;strong&#62;'
