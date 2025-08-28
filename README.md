@@ -38,9 +38,7 @@
 
 <br>
 
-> ❗ **IMPORTANT**
->
-> *🛡 Security*
+> 🛡 ** SECURITY**
 >
 > Encodes special characters into HTML entities, helping mitigate XSS risks in the textual layer by ensuring user‑supplied content is treated as text, not executable code.
 >
