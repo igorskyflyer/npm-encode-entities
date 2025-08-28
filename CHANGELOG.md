@@ -4,6 +4,12 @@
 
 <br>
 
+## v2.0.1 (*28-Aug-2025*)
+
+- **✅ fix**: fix entrypoints
+
+<br>
+
 ## v2.0.0 (*28-Aug-2025*)
 
 - **💻 dev**: upgrade Node to >= 22
