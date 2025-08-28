@@ -42,7 +42,7 @@
 >
 > Encoding of special characters into HTML entities helps mitigate XSS risks in the textual layer by ensuring user‑supplied content is treated as text, not executable code.
 >
-> **Note: not a full XSS solution, context‑aware escaping is still required.**
+> **Note: not a full XSS solution, usage of other XSS-prevention techniques is still required.**
 >
 
 <br>
