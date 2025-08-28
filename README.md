@@ -40,7 +40,7 @@
 
 > 🛡 **SECURITY**
 >
-> Encodes special characters into HTML entities, helping mitigate XSS risks in the textual layer by ensuring user‑supplied content is treated as text, not executable code.
+> Encoding of special characters into HTML entities, helps mitigate XSS risks in the textual layer by ensuring user‑supplied content is treated as text, not executable code.
 >
 > (Note: not a full XSS solution, context‑aware escaping is still **required**.)
 >
