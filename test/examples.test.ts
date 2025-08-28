@@ -12,8 +12,8 @@ describe('🧪 Encode Entities tests (examples) 🧪', () => {
 
   suite('resetRules()', () => {
     test('#1 should return "&#60;strong&#62;"', () => {
-      encoder.addRule('😀', '<')
-      encoder.addRule('😂', '>')
+      encoder.updateRule('😀', '<')
+      encoder.updateRule('😂', '>')
       encoder.resetRules()
 
       assert.equal(encoder.encode('<strong>'), '&#60;strong&#62;')
