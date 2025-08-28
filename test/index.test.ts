@@ -1,7 +1,7 @@
 // Author: Igor Dimitrijević (@igorskyflyer)
 
 import { assert, beforeEach, describe, suite, test } from 'vitest'
-import { Encoder } from '../src/index.mjs'
+import { Encoder } from '../src/index.js'
 
 const htmlDocument: string = `
 <html>
